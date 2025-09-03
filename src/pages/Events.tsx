@@ -1,26 +1,52 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, MapPin, Clock, Users, Star, Zap, Coffee, X } from 'lucide-react';
+import { Calendar, MapPin, Clock, Users, Star, Zap, Coffee, X, Image } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
 const Events: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showUploadNotice, setShowUploadNotice] = useState(false);
+  const navigate = useNavigate();
+
+  const handleViewGallery = () => {
+    navigate('/gallery');
+  };
   
   const upcomingEvents = [
     {
       id: 1,
-      title: "Club Orientation Program",
-      date: "July 25, 2025",
-      time: "4:45 PM",
-      location: "Language lab",
-      participants: "Open",
-      description: "Join us for the official orientation of Code Caffeine. Learn about our vision, upcoming activities, and how you can be part of this amazing tech community.",
+      title: "SIH Internal Hackathon",
+      date: "11th and 12th September, 2025",
+      time: "Will be notified soon",
+      location: "GMIT College Campus",
+      participants: "Will be notified soon",
+      description: "Join us for an exciting internal hackathon as part of Smart India Hackathon preparation. Showcase your skills, collaborate with peers, and build innovative solutions.",
       image: "https://images.pexels.com/photos/2740956/pexels-photo-2740956.jpeg",
       featured: true
     }
   ];
 
-  const pastEvents: { title: string; date: string; participants: string; description: string; }[] = [];
+  const pastEvents = [
+    {
+      title: "Club Orientation Program",
+      date: "July 25, 2025",
+      participants: "Completed",
+      description: "Join us for the official orientation of Code Caffeine. Learn about our vision, upcoming activities, and how you can be part of this amazing tech community."
+    },
+    {
+      title: "ByteStorm 1.0",
+      date: "March 8, 2025",
+      participants: "Completed",
+      description: "A thrilling hackathon event where participants compete to build innovative solutions within a limited time frame. Showcase your coding skills and creativity in this exciting competition."
+    },
+    {
+      title: "Training Session",
+      date: "August 8, 2025",
+      participants: "Completed",
+      description: "A comprehensive training session designed specifically for first-year students. Learn fundamental programming concepts, development tools, and best practices to kickstart your coding journey."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
@@ -113,24 +139,34 @@ const Events: React.FC = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="flex items-center text-gray-400 space-x-3">
                           <Calendar className="h-5 w-5 text-purple-400" />
-                          {event.date}
+                          <span>{event.date}</span>
                         </div>
                         <div className="flex items-center text-gray-400 space-x-3">
                           <Clock className="h-5 w-5 text-purple-400" />
-                          {event.time}
+                          <span>{event.time}</span>
                         </div>
                         <div className="flex items-center text-gray-400 space-x-3">
                           <MapPin className="h-5 w-5 text-purple-400" />
-                          {event.location}
+                          <span>{event.location}</span>
                         </div>
                         <div className="flex items-center text-gray-400 space-x-3">
                           <Users className="h-5 w-5 text-purple-400" />
-                          {event.participants} participants expected
+                          <span>{event.participants}</span>
                         </div>
+                      </div>
+                      <div className="mt-6">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => setShowUploadNotice(true)}
+                          className="px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-orange-700 transition-all"
+                        >
+                          Upload PPT/PDF
+                        </motion.button>
                       </div>
                     </div>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </motion.div>
               ))}
             </div>
@@ -145,7 +181,7 @@ const Events: React.FC = () => {
           >
             <h2 className="text-4xl font-black text-white mb-12 flex items-center">
               <Coffee className="h-10 w-10 text-orange-400 mr-4" />
-              LEGENDARY MOMENTS
+              PAST EVENTS
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-4xl">
               Stay tuned for our upcoming Tech Talk on AI next week! Our journey of creating legendary moments is about to begin.
@@ -172,6 +208,63 @@ const Events: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-red-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>
               ))}
+            </div>
+
+            {/* View Gallery Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="text-center mt-12"
+            >
+              <motion.button
+                onClick={handleViewGallery}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 flex items-center space-x-3 mx-auto"
+              >
+                <Image className="h-6 w-6" />
+                <span>View All Past Events in Gallery</span>
+              </motion.button>
+            </motion.div>
+          </motion.section>
+
+          {/* Legendary Moments */}
+          <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mb-20"
+          >
+            <h2 className="text-4xl font-black text-white mb-12 flex items-center">
+              <Star className="h-10 w-10 text-yellow-400 mr-4" />
+              LEGENDARY MOMENTS
+            </h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-4xl">
+              Stay tuned for our upcoming Tech Talk on AI next week! Our journey of creating legendary moments is about to begin.
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Placeholder for future legendary moments */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7 }}
+                whileHover={{ y: -10, scale: 1.05 }}
+                className="group relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/60 to-gray-800/60 backdrop-blur-sm border border-gray-700/50 hover:border-yellow-500/50 transition-all duration-500"
+              >
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors">
+                  Coming Soon
+                </h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  More legendary moments and achievements will be showcased here as we continue our journey.
+                </p>
+                <div className="flex justify-between items-center text-gray-400">
+                  <span className="font-semibold">TBA</span>
+                  <span className="text-yellow-400 font-bold">Stay tuned</span>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-orange-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
             </div>
           </motion.section>
 
@@ -231,6 +324,8 @@ const Events: React.FC = () => {
                     <button
                       onClick={() => setShowPopup(false)}
                       className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                      title="Close popup"
+                      aria-label="Close popup"
                     >
                       <X className="h-6 w-6" />
                     </button>
@@ -265,6 +360,45 @@ const Events: React.FC = () => {
                         </button>
                       </motion.div>
                     </div>
+                  </div>
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
+          {/* Upload Notice Popup */}
+          <AnimatePresence>
+            {showUploadNotice && (
+              <div className="fixed inset-0 flex items-center justify-center z-50 px-4">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                  onClick={() => setShowUploadNotice(false)}
+                />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, y: 20 }}
+                  className="relative w-full max-w-sm mx-auto"
+                >
+                  <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-3xl border border-purple-500/30 shadow-2xl backdrop-blur-md text-center">
+                    <button
+                      onClick={() => setShowUploadNotice(false)}
+                      className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                      title="Close popup"
+                      aria-label="Close popup"
+                    >
+                      <X className="h-6 w-6" />
+                    </button>
+                    <motion.h3 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-2xl font-bold text-white mb-2"
+                    >
+                      The Event will live soon!
+                    </motion.h3>
+                    <p className="text-gray-300">Uploads will open once the event goes live.</p>
                   </div>
                 </motion.div>
               </div>

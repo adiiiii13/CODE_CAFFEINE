@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.path;
@@ -70,6 +70,18 @@ const Navigation: React.FC = () => {
                 </motion.div>
               );
             })}
+            
+            {/* Club ID Button */}
+            <motion.a
+              href="https://codecaffeine-cc.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="ml-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:text-blue-600 border border-blue-600 hover:border-white inline-block"
+            >
+              Club ID
+            </motion.a>
           </div>
 
           {/* Mobile menu button */}
@@ -114,6 +126,17 @@ const Navigation: React.FC = () => {
                   </Link>
                 );
               })}
+              
+              {/* Club ID Button for Mobile */}
+              <a
+                href="https://codecaffeine-cc.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="w-full mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white hover:text-blue-600 border border-blue-600 hover:border-white inline-block text-center"
+              >
+                Club ID
+              </a>
             </div>
           </motion.div>
         )}

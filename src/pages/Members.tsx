@@ -10,54 +10,54 @@ const Members: React.FC = () => {
       role: "President",
       major: "Computer Science",
       bio: "Passionate about AI and machine learning. Leading Court Caffeine towards innovative tech solutions.",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
-      github: "alexchen",
-      linkedin: "alex-chen-dev",
-      email: "alex@courtcaffeine.tech"
+      image: "/src/Images/Aditya.jpg",
+      github: "https://github.com/adiiiii13",
+      linkedin: "https://www.linkedin.com/in/aditya-routh-231716214/",
+      email: "aditya72slg@gmail.com"
     },
     {
       name: "Payel Dey",
       role: "Vice President",
       major: "Software Engineering",
       bio: "Full-stack developer with expertise in React and Node.js. Organizing workshops and events.",
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
-      github: "sarahkumar",
-      linkedin: "sarah-kumar-tech",
-      email: "sarah@courtcaffeine.tech"
+      image: "/src/Images/Payel.jpg",
+      github: "https://github.com/PayelDey13",
+      linkedin: "https://www.linkedin.com/in/payel-dey/",
+      email: "deypayel933.com@gmail.com"
     },
     {
       name: "Lucky Pandey",
       role: "Community Lead & Speaker Coordinator",
       major: "Data Science",
       bio: "Data science enthusiast and competitive programmer. Mentoring members in algorithm design.",
-      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-      github: "marcusj",
-      linkedin: "marcus-johnson-ds",
-      email: "marcus@courtcaffeine.tech"
+      image: "/src/Images/Lucky.jpg",
+      github: "https://github.com/luckypandey6291",
+      linkedin: "https://www.linkedin.com/in/lucky-pandey-0265a2339/",
+      email: "pandeylucky7500@gmail.com"
     },
     {
       name: "Anirban Das",
       role: "Technical Lead & Project Lead",
       major: "Information Systems",
       bio: "Expert in project management and event planning. Creating memorable experiences for members.",
-      image: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg",
-      github: "emilyzhang",
-      linkedin: "emily-zhang-is",
-      email: "emily@courtcaffeine.tech"
+      image: "/src/Images/Anirban.jpg",
+      github: "https://github.com/Helix-1716",
+      linkedin: "https://www.linkedin.com/in/anirban-das-261253322/",
+      email: "anirbandas6778788@gmail.com"
     }
   ];
 
   const achievements = [
-    { icon: Award, title: "1st Place", description: "Regional Hackathon 2023" },
-    { icon: Star, title: "Best Club", description: "University Tech Awards" },
-    { icon: Crown, title: "Innovation Award", description: "Student Leadership Council" },
-    { icon: Heart, title: "Community Impact", description: "Tech for Good Initiative" }
+    { icon: Award, title: "1st Club", description: "Coding Club of GMIT" },
+    { icon: Star, title: "Best Club", description: "College Tech Club" },
+    { icon: Crown, title: "Innovation Projects", description: "Best Projects Done By GMITians" },
+    { icon: Heart, title: "Community Impact", description: "Tech for Coding Culture Initiative" }
   ];
 
   const stats = [
-    { number: "500+", label: "Active Members" },
+    { number: "30+", label: "Active Members" },
     { number: "50+", label: "Alumni Network" },
-    { number: "25+", label: "Team Leaders" },
+    { number: "5+", label: "Team Leaders" },
     { number: "100%", label: "Fun Factor" }
   ];
 
@@ -108,6 +108,69 @@ const Members: React.FC = () => {
             </div>
           </motion.section>
 
+          {/* Mentor Section */}
+          <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+              Our Mentor
+            </h2>
+            
+            <div className="flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="relative bg-gradient-to-br from-green-900/40 to-gray-800/60 rounded-2xl p-8 border border-green-500/30 max-w-2xl w-full"
+              >
+                {/* Glow effects */}
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-2xl blur-xl opacity-50" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-2xl blur-2xl opacity-30" />
+                
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
+                  <div className="relative">
+                    <img
+                      src="/src/Images/Biplab.png"
+                      alt="Dr. Biplab Kanti Das"
+                      className="w-32 h-32 rounded-full object-cover border-4 border-green-400/50 shadow-2xl"
+                    />
+                    {/* Profile picture glow */}
+                    <div className="absolute inset-0 w-32 h-32 rounded-full bg-green-400/20 blur-xl" />
+                  </div>
+                  
+                  <div className="text-center md:text-left flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Dr. Biplab Kanti Das
+                    </h3>
+                    <p className="text-green-400 font-semibold text-lg mb-3">
+                      Our Mentor & Technical Advisor
+                    </p>
+                    <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                      With over 25+ years of experience in the technical field, Dr. Biplab Kanti Das 
+                      has been an invaluable mentor to our club. His expertise and guidance have 
+                      shaped countless careers and helped us achieve remarkable milestones in 
+                      technology and innovation.
+                    </p>
+                    <div className="flex items-center justify-center md:justify-start space-x-4">
+                      <div className="flex items-center space-x-2 text-green-400">
+                        <Award className="h-5 w-5" />
+                        <span className="text-sm font-medium">25+ Years Experience</span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-green-400">
+                        <Star className="h-5 w-5" />
+                        <span className="text-sm font-medium">Technical Expert</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.section>
+
           {/* Leadership Team */}
           <motion.section
             initial={{ opacity: 0 }}
@@ -148,14 +211,18 @@ const Members: React.FC = () => {
                   <div className="flex justify-center space-x-3">
                     <motion.a
                       whileHover={{ scale: 1.1 }}
-                      href={`https://github.com/${member.github}`}
+                      href={member.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
                     >
                       <Github className="h-4 w-4 text-gray-300" />
                     </motion.a>
                     <motion.a
                       whileHover={{ scale: 1.1 }}
-                      href={`https://linkedin.com/in/${member.linkedin}`}
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
                     >
                       <Linkedin className="h-4 w-4 text-gray-300" />
@@ -224,14 +291,27 @@ const Members: React.FC = () => {
               We're always looking for passionate individuals who want to make a difference 
               in the tech community. Whether you're a beginner or experienced, there's a place for you!
             </p>
-            <div className="flex justify-center">
-              <motion.button
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <motion.a
+                href="https://codecaffeine-cc.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border-2 border-green-500 text-green-400 rounded-lg font-semibold hover:bg-green-500/10 transition-all duration-300"
+                className="px-8 py-3 border-2 border-green-500 text-green-400 rounded-lg font-semibold hover:bg-green-500/10 transition-all duration-300 text-center"
               >
                 Become a Member
-              </motion.button>
+              </motion.a>
+              <motion.a
+                href="https://codecaffeine-cc.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 text-center"
+              >
+                Join Code Caffeine
+              </motion.a>
             </div>
           </motion.section>
         </div>

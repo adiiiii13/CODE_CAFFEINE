@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Code, Users, Calendar, Trophy, ArrowRight, Zap, Globe, Cpu, Coffee, Terminal, Sparkles } from 'lucide-react';
+import { Code, Users, Trophy, ArrowRight, Zap, Globe, Cpu, Coffee, Terminal, Sparkles } from 'lucide-react';
 import Navigation from '../components/Navigation';
 
 const Home: React.FC = () => {
@@ -31,9 +31,9 @@ const Home: React.FC = () => {
   ];
 
   const stats = [
-    { number: "5+", label: "Active Members" },
+    { number: "10+", label: "Active Members" },
     { number: "0+", label: "Projects Built" },
-    { number: "1", label: "Events Hosted" },
+    { number: "3+", label: "Events Hosted" },
     { number: "0", label: "Years Running" }
   ];
 
