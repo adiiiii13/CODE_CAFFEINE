@@ -25,6 +25,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<LoadingPage />} />
+          <Route path="/loading" element={<LoadingPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<Gallery />} />

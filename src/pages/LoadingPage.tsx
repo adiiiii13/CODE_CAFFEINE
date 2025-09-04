@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Spline from '@splinetool/react-spline';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const LoadingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const LoadingPage: React.FC = () => {
 
   useEffect(() => {
     // Only prevent default touch behaviors on the 3D scene
-    const splineContainer = document.querySelector('.spline-container');
+    // const splineContainer = document.querySelector('.spline-container');
     const preventDefaultTouch = (e: TouchEvent) => {
       if (e.target && (e.target as Element).closest('.spline-container')) {
         e.preventDefault();

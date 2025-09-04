@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code, Wrench, Users, ArrowLeft, ExternalLink } from 'lucide-react';
+import { Users, ArrowLeft, ExternalLink } from 'lucide-react';
 import Navigation from '../components/Navigation';
 
 export const Projects: React.FC = () => {

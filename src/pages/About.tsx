@@ -112,8 +112,8 @@ const About: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const requiredFields = ['name', 'email', 'year', 'department', 'query'];
-    const isFormValid = requiredFields.every(field => (formData as any)[field].trim() !== '');
+    const requiredFields: Array<keyof typeof formData> = ['name', 'email', 'year', 'department', 'query'];
+    const isFormValid = requiredFields.every((field) => formData[field].trim() !== '');
     if (!isFormValid) {
       alert('Please fill in all required fields');
       return;
