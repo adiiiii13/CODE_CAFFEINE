@@ -100,7 +100,46 @@ npm run build
 
 # Preview production build
 npm run preview
+
+# Lint code
+npm run lint
 ```
+
+## Deployment
+
+This project is ready to deploy on multiple platforms:
+
+### Netlify (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to Netlify
+3. Netlify will automatically detect the build settings from `netlify.toml`
+4. Or deploy manually: `npm run deploy:netlify`
+
+### Vercel
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Vercel will automatically detect the build settings from `vercel.json`
+4. Or deploy manually: `npm run deploy:vercel`
+
+### GitHub Pages
+1. Push your code to the `main` branch
+2. GitHub Actions will automatically build and deploy to GitHub Pages
+3. Enable GitHub Pages in repository settings
+
+### Manual Deployment
+```bash
+# Build the project
+npm run build
+
+# The dist/ folder contains all static files ready for deployment
+# Upload the contents of dist/ to any static hosting service
+```
+
+## Project Status
+- ✅ Build system configured
+- ✅ Dependencies resolved
+- ✅ Deployment ready
+- ✅ Multiple deployment options available
 
 ## Contact
 
